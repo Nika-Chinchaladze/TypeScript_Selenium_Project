@@ -4,7 +4,7 @@
   "main": "index.js",
   "scripts": {
     "build": "tsc",
-    "test": "mocha --reporter list"
+    "test": "mocha"
   },
   "keywords": [],
   "author": "",
