@@ -1,19 +1,15 @@
-import { By, WebDriver, WebElement } from 'selenium-webdriver';
+import { WebDriver } from 'selenium-webdriver';
+import { Actions } from '../helper/actions';
+import { Assertions } from '../helper/assertions';
 
 export class BasePage {
-    constructor(private driver: WebDriver) {}
+    protected readonly driver: WebDriver;
+    public readonly actions: Actions;
+    public readonly assertions: Assertions;
 
-    async findElement(locator: By): Promise<WebElement> {
-        const element = await this.driver.findElement(locator);
-        return element;
-    }
-
-    async navigateToUrl(url: string): Promise<void> {
-        await this.driver.get(url);
-    }
-
-    async getPageTitle(): Promise<string> {
-        const pageTitle: string = await this.driver.getTitle();
-        return pageTitle;
+    constructor(webDriver: WebDriver) {
+        this.driver = webDriver;
+        this.actions = new Actions(this.driver);
+        this.assertions = new Assertions(this.driver);
     }
 }

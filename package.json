@@ -15,9 +15,11 @@
     "ts-node": "^10.9.2"
   },
   "devDependencies": {
+    "@types/chai": "^5.2.2",
     "@types/chromedriver": "^81.0.5",
     "@types/mocha": "^10.0.10",
     "@types/selenium-webdriver": "^4.1.28",
+    "chai": "^4.5.0",
     "chromedriver": "^138.0.2"
   }
 }

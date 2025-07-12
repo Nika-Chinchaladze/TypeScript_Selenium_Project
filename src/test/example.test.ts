@@ -1,25 +1,26 @@
 import { WebDriver } from 'selenium-webdriver';
 import { describe, it, beforeEach, afterEach } from 'mocha';
 import { CreateDriver } from '../main/config/create.driver';
-import { HomePage } from '../main/pages/home.page';
+import { Pages } from '../main/fixture/pages.fixture';
+
+const createDriver = new CreateDriver();
 
 describe('Example Suite', () => {
-    const createDriver = new CreateDriver();
     let driver: WebDriver;
-    let homePage: HomePage;
+    let pages: Pages;
 
     beforeEach('Initiate Browser', async () => {
         driver = await createDriver.createChromeDriver();
-        homePage = new HomePage(driver);
+        pages = new Pages(driver);
     });
 
     afterEach('Close the browser', async () => {
-        await driver.quit();
+        await pages.tearDown();
     });
 
     it('First', async () => {
-        await homePage.navigateToUrl(homePage.pageUrl);
-        const pageTitle: string = await homePage.getPageTitle();
-        console.log(pageTitle);
+        await pages.homePage.actions.navigateToUrl(pages.homePage.pageUrl);
+        await pages.homePage.assertions.verifyElementIsDisplayed(pages.homePage.title);
+        await pages.homePage.assertions.verifyPageHasTitle('DEMOQA');
     });
 });
