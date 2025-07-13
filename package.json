@@ -7,8 +7,7 @@
   "license": "ISC",
   "description": "",
   "scripts": {
-    "test:list-report": "mocha --reporter list --timeout 50000 -r ts-node/register src/test/spec/*.test.ts",
-    "test:html:report": "mocha --reporter mochawesome --reporter-options reportDir=mochawesome-report,overwrite=false,html=true,json=true --timeout 50000 -r ts-node/register src/test/spec/*.test.ts",
+    "test": "mocha --reporter list --timeout 50000 -r ts-node/register src/test/spec/*.test.ts",
     "test:multi-report": "mocha --reporter mocha-multi-reporters --reporter-options configFile=mocha-multi-reporters.json --timeout 50000 -r ts-node/register src/test/spec/*.test.ts",
     "check:code": "eslint \"src/**/*.ts\" --max-warnings=0",
     "format:code": "prettier --write \"src/**/*.ts\"",
