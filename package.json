@@ -9,6 +9,7 @@
   "scripts": {
     "test": "mocha --reporter list --timeout 50000 -r ts-node/register src/test/**/spec/*.test.ts",
     "test:multi-report": "mocha --reporter mocha-multi-reporters --reporter-options configFile=mocha-multi-reporters.json --timeout 50000 -r ts-node/register src/test/**/spec/*.test.ts",
+    "test:api": "mocha --reporter list --timeout 50000 -r ts-node/register src/test/api/spec/*.test.ts",
     "check:code": "eslint \"src/**/*.ts\" --max-warnings=0",
     "format:code": "prettier --write \"src/**/*.ts\"",
     "clean:report": "rimraf mochawesome-report"
@@ -20,12 +21,14 @@
   },
   "devDependencies": {
     "@eslint/js": "^9.31.0",
+    "@types/axios": "^0.14.4",
     "@types/chai": "^5.2.2",
     "@types/chromedriver": "^81.0.5",
     "@types/mocha": "^10.0.10",
     "@types/selenium-webdriver": "^4.1.28",
     "@typescript-eslint/eslint-plugin": "^8.36.0",
     "@typescript-eslint/parser": "^8.36.0",
+    "axios": "^1.10.0",
     "chai": "^4.5.0",
     "chromedriver": "^138.0.2",
     "eslint": "^9.31.0",

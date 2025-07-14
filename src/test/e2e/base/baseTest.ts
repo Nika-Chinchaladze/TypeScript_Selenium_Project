@@ -1,5 +1,5 @@
 import { WebDriver } from 'selenium-webdriver';
-import { Pom } from '../../../main/e2e/fixture/pages.fixture'
+import { Pom } from '../../../main/e2e/fixture/pages.fixture';
 import { CreateDriver } from '../../../main/e2e/config/create.driver';
 
 export class BaseTest {
