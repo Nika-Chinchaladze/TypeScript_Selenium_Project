@@ -1,6 +1,6 @@
 import { WebDriver } from 'selenium-webdriver';
-import { Pom } from '../../main/fixture/pages.fixture';
-import { CreateDriver } from '../../main/config/create.driver';
+import { Pom } from '../../../main/e2e/fixture/pages.fixture'
+import { CreateDriver } from '../../../main/e2e/config/create.driver';
 
 export class BaseTest {
   protected driver!: WebDriver;
