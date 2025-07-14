@@ -1,7 +1,7 @@
 import { describe, it, beforeEach, afterEach } from 'mocha';
 import { BaseTest } from '../base/baseTest';
 
-describe('Example Suite', () => {
+describe('E2E Test Suite', () => {
   const baseTest = new BaseTest();
 
   beforeEach('Initiate Browser', async () => {
