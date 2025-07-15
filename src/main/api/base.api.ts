@@ -7,16 +7,23 @@ export class BaseApi {
   protected password: string = 'Chincho123@';
   protected userId: string = 'b1703b5f-b163-4949-bc61-b29928f8cd86';
 
-  protected async generateToken(): Promise<IGeneratedToken> {
-    const credentials: string = `{
+  protected getCredentials(): string {
+    return `{
       "userName": "${this.userName}",
       "password": "${this.password}"
     }`;
-    const response = await axios.post(`${this.baseUrl}/Account/v1/GenerateToken`, credentials, {
-      headers: {
-        'Content-Type': 'application/json',
+  }
+
+  protected async generateToken(): Promise<IGeneratedToken> {
+    const response = await axios.post(
+      `${this.baseUrl}/Account/v1/GenerateToken`,
+      this.getCredentials(),
+      {
+        headers: {
+          'Content-Type': 'application/json',
+        },
       },
-    });
+    );
     return response.data;
   }
 }
