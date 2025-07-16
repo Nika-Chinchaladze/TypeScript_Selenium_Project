@@ -3,27 +3,24 @@ import type { IGeneratedToken } from './types/data.types';
 
 export class BaseApi {
   protected baseUrl: string = 'https://demoqa.com';
-  protected userName: string = 'chincho';
-  protected password: string = 'Chincho123@';
-  protected userId: string = 'b1703b5f-b163-4949-bc61-b29928f8cd86';
 
-  protected getCredentials(): string {
-    return `{
-      "userName": "${this.userName}",
-      "password": "${this.password}"
+  protected async generateToken(args: {
+    username: string;
+    password: string;
+  }): Promise<IGeneratedToken> {
+    const credentials: string = `{
+      "userName": "${args.username}",
+      "password": "${args.password}"
     }`;
+    const response = await axios.post(`${this.baseUrl}/Account/v1/GenerateToken`, credentials, {
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    });
+    return response.data;
   }
 
-  protected async generateToken(): Promise<IGeneratedToken> {
-    const response = await axios.post(
-      `${this.baseUrl}/Account/v1/GenerateToken`,
-      this.getCredentials(),
-      {
-        headers: {
-          'Content-Type': 'application/json',
-        },
-      },
-    );
-    return response.data;
+  async sleep(ms: number): Promise<void> {
+    return new Promise((resolve) => setTimeout(resolve, ms));
   }
 }

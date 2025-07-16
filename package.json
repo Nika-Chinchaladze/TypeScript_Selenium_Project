@@ -10,7 +10,7 @@
     "test": "mocha --reporter list --timeout 50000 -r ts-node/register src/test/**/spec/*.test.ts",
     "test:multi-report": "mocha --reporter mocha-multi-reporters --reporter-options configFile=mocha-multi-reporters.json --timeout 50000 -r ts-node/register src/test/**/spec/*.test.ts",
     "test:api": "mocha --reporter list --timeout 50000 -r ts-node/register src/test/api/spec/*.test.ts",
-    "check:code": "eslint \"src/**/*.ts\" --max-warnings=0",
+    "pretest": "eslint \"src/**/*.ts\" --max-warnings=0",
     "format:code": "prettier --write \"src/**/*.ts\"",
     "clean:report": "rimraf mochawesome-report"
   },
